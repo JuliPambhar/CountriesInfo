@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CountriesInfo</string>
+    <string name="something_went_wrong">Something went wrong</string>
+    <string name="ic_flag">flag icon</string>
+    <string name="ic_back">Back arrow</string>
+    <string name="population">Population</string>
+    <string name="region">Region</string>
+    <string name="area">Area</string>
+    <string name="capital">Capital</string>
+    <string name="coatOfArms">Coat of Arms</string>
+    <string name="go_to_map">Go to Map</string>
+    <string name="no_data">No Data Found</string>
+    <string name="no_internet_message">No internet connection. Please make sure you are connected with network.</string>
+</resources>
