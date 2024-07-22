@@ -20,6 +20,7 @@ This project is an Android application that follows the principles of Clean Code
 - StateFlow for reactive UI updates
 - Kotlin Coroutines for asynchronous operations
 - SharedTransitionLayout for transition animation between two screens
+- Junit test and UI Test cases
 
 ## Architecture
 
