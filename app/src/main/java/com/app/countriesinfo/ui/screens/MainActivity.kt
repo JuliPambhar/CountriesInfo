@@ -23,13 +23,9 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
-    @Inject
-    lateinit var gson: Gson
-
     @OptIn(ExperimentalSharedTransitionApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        // enableEdgeToEdge()
         setContent {
             CountriesInfoTheme {
 
@@ -60,7 +56,6 @@ class MainActivity : ComponentActivity() {
                             CountryListScreen(
                                 viewData = viewState.value,
                                 searchText = searchText.value,
-//                                countries = countries.value,
                                 onSearchTextChange = sharedViewModel::onSearch,
                                 onCountrySelect = { countryInfo ->
                                     val route =

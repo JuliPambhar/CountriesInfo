@@ -18,8 +18,6 @@ class CountryDetailScreenTest {
     @get:Rule
     val composeTestRule = createComposeRule()
 
-    private val context: Context = InstrumentationRegistry.getInstrumentation().targetContext
-
     @OptIn(ExperimentalSharedTransitionApi::class)
     private fun initView(fakeCountry: CountryInfo) {
         composeTestRule.setContent {
