@@ -9,12 +9,4 @@ data class CountryInfo(
     val coatOfArms: String = "",
     val maps: String = "",
     val capital: String = "",
-
-) {
-    fun doesMatchSearchQuery(query: String): Boolean {
-        val matchingCombinations = listOf(
-            name.contains(query, ignoreCase = true)
-        )
-        return matchingCombinations.any { it }
-    }
-}
+)

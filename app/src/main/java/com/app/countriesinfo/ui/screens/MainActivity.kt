@@ -16,9 +16,7 @@ import com.app.countriesinfo.ui.connectivityUtils.ConnectivityObserver
 import com.app.countriesinfo.ui.screens.countryDetail.CountryDetailsScreen
 import com.app.countriesinfo.ui.screens.countryLIst.CountryListScreen
 import com.app.countriesinfo.ui.theme.CountriesInfoTheme
-import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -69,7 +67,7 @@ class MainActivity : ComponentActivity() {
                         composable(Routes.COUNTRY_DETAILS) {
 
                             val countryName = it.arguments?.getString("name")
-                            sharedViewModel.onCountrySelected(countryName.orEmpty())
+                            sharedViewModel.getCountryByName(countryName.orEmpty())
                             val countryInfo = sharedViewModel.selectedCountry.collectAsState()
 
                             CountryDetailsScreen(

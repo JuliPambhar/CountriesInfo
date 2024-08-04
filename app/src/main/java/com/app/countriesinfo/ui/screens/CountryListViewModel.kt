@@ -3,6 +3,7 @@ package com.app.countriesinfo.ui.screens
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.app.countriesinfo.ui.connectivityUtils.ConnectivityObserver
+import com.app.countriesinfo.ui.connectivityUtils.ConnectivityObserverImpl
 import com.app.countriesinfo.utils.UiState
 import com.app.domain.ResponseState
 import com.app.domain.entities.CountryInfo
@@ -20,7 +21,6 @@ class CountryListViewModel @Inject constructor(
     val connectionState: ConnectivityObserver,
     private val getCountriesUseCase: GetCountriesUseCase
 ) : ViewModel() {
-
     private val _viewData = MutableStateFlow(ViewData())
     val viewData: StateFlow<ViewData> get() = _viewData.asStateFlow()
 
@@ -35,10 +35,9 @@ class CountryListViewModel @Inject constructor(
     fun onSearch(query: String) {
         viewModelScope.launch {
             _searchText.value = query
-            // Perform the search (replace with actual search logic)
-            val results = _allCountries.filter { it.doesMatchSearchQuery(query) }
 
-            // Update the search results
+            val results = _allCountries.filter { it.name.contains(query, true) }
+
             _viewData.value = _viewData.value.copy(
                 state = UiState.LOADED,
                 countries = results
@@ -51,7 +50,7 @@ class CountryListViewModel @Inject constructor(
         _allCountries = countries.toMutableList()
     }
 
-    fun onCountrySelected(countryName: String): CountryInfo {
+    fun getCountryByName(countryName: String): CountryInfo {
         _selectedCountry.value = _allCountries.find { it.name == countryName } ?: CountryInfo()
         return _selectedCountry.value
     }

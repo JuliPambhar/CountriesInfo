@@ -167,12 +167,12 @@ class CountryListViewModelTest {
     }
 
     @Test
-    fun `onCountrySelected should update selectedCountry`() = runTest {
+    fun `getCountryByName should update selectedCountry value`() = runTest {
         // Given
         val mockCountries = listOf(CountryInfo(name = "Country1"), CountryInfo(name = "Country2"))
         viewModel.populateCountries(mockCountries)
         // When
-        val selectedCountry = viewModel.onCountrySelected("Country1")
+        val selectedCountry = viewModel.getCountryByName("Country1")
 
         // Then
         assertEquals(CountryInfo(name = "Country1"), selectedCountry)
